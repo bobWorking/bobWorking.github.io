@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>自動判斷裝置並跳轉</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script>
+        // 判斷裝置類型
+        function detectMobileDevice() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(userAgent)) {
+                // Android 裝置
+                window.location.href = "https://play.google.com/store/apps/details?id=jp.naver.line.android&hl=zh_TW"; // 請替換為你的應用程式ID
+            } else if (/iPad|iPhone|iPod/.test(userAgent)) {
+                // iOS 裝置
+                window.location.href = "https://apps.apple.com/tw/app/line/id443904275"; // 請替換為你的應用程式ID
+            } else {
+                // 其他裝置
+                alert("請使用手機瀏覽器開啟");
+            }
+        }
+
+        // 頁面載入時自動執行判斷
+        window.onload = detectMobileDevice;
+    </script>
+</body>
+</html>
